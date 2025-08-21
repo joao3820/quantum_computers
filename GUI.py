@@ -1,7 +1,7 @@
 import sys
 import os
 from PyQt5 import QtWidgets, uic
-from tunneling_game.tunneling import *
+from circuits.tunneling import *
 
 """
 Template for GUI

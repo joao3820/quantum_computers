@@ -1,15 +1,7 @@
 # Quantum Computers
 
-Particle game on IBM's quantum computers as part of U. Porto's quantum computation group.
+Custom interface to communicate with IBM's opensource quantum computers.
 
-We were learning with the qiskit textbook: https://qiskit.org/textbook/preface.html
+<img src="./GUI.png" width="1000">
 
-We would also recreate popular algorithms and papers. Currently, Qiskit also has many youtube tutorials you can watch and learn from that. Some algorithms we can try to recreate:
-- Deutsch Josza algorithm
-- Grover algorithm
-- Shor algorithm
-- Fast Fourier Transform algorithm
-- Simon algorithm
-- Boson Sampling Problem algorithm
-- Solving linear systems of equations
-- etc...
+It allows to simulate a game, where a particle has to pass through a barrier and the probability is calculated in a quantum computer, emmulating quantum tunneling effects.
