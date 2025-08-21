@@ -26,6 +26,7 @@ class MainWindow(QtWidgets.QMainWindow):
         """Run the quantum circuit, based on the API key."""
 
         api_key = str(self.apiKey.text())  # if it's a value box, .value() instead...
+        print("Button is working")
 
         return
     
