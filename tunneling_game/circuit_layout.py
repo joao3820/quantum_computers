@@ -5,20 +5,29 @@ class CircuitLayout:
             self,
             number_of_bits: int,
             number_of_bits_to_measure: int,
+            initial_states = None,
     ):
         """
         Create basic quantum circuit with defined number of qubits.
 
         Args:
             number_of_bits: Integer of the number of qubits of the system.
-            number_of_bits: Integer of the number of qubits to measure at the end of the system.
+            number_of_bits_to_measure: Integer of the number of qubits to measure at the end of the system,
+                which creates classical bits to store the quantum data after it is projected.
+            initial_states: Optional dictionary of the form {qubit, '[x, y]'}, where we can define the initial
+                state of a qubit as x|0>+y|1>.
         
         Note that Qiskit assumes qubit 0 as the least sig bit and the qubit n-1 as the most.
         Therefore, choosing number_of_bits=4 and number_of_bits_to_measure=2, it measures q2 and q3, not q0 and q1.
         """
         if number_of_bits_to_measure > number_of_bits:
-            raise 
-        self.qc = QuantumCircuit(number_of_bits, number_of_bits_to_measure)
+            raise ValueError("Number of bits to measure can't be bigger than the total number of bits")
+        
+        self.qc = QuantumCircuit(number_of_bits, number_of_bits_to_measure)  # instead of integers, it can also take QuantumRegister and ClassicalRegister objects
+
+        if initial_states:
+            for qubit, state in initial_states.items():
+                self.qc.initialize(list(state), int(qubit))  # initialize the qubits we want in a given state
 
     def add_not_gate(
             self,
