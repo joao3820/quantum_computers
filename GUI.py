@@ -37,6 +37,7 @@ class MainWindow(QtWidgets.QMainWindow):
         v = rd.random()
         counts = tunneling_circuit(
             velocity=v,
+            api_key=api_key,
             barrier_strength=barrier_strength,
             used_backend=backend_choice,
             shots=shots,

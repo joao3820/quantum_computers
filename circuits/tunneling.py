@@ -5,6 +5,7 @@ from circuits.run_circuit import simulate
 
 def tunneling_circuit(
         velocity: float,
+        api_key,
         barrier_strength: float = 1.0,
         used_backend: str = 'aer_simulator',
         shots: int = 100
@@ -29,5 +30,5 @@ def tunneling_circuit(
 
     circuit.qc.measure_all()
 
-    counts = simulate(circuit, used_backend=used_backend, shots=shots)
+    counts = simulate(circuit, api_key=api_key, used_backend=used_backend, shots=shots)
     return counts
