@@ -1,5 +1,8 @@
+import argparse
 import numpy as np
+
 from typing import Dict
+
 from circuits.circuit_layout import CircuitLayout
 from circuits.run_circuit import simulate
 
@@ -32,3 +35,22 @@ def tunneling_circuit(
 
     counts = simulate(circuit, api_key=api_key, used_backend=used_backend, shots=shots)
     return counts
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Running quick test for tunneling effect on a quantum computer.')
+
+    parser.add_argument('--api_key', type=str, help='API key for IBM quantum computers.', default=None)
+    args = parser.parse_args()
+
+    if args.api_key is None:
+        raise ValueError("API key is missing. Login into your IBM Qiskit account if you still don't have one.")
+    
+    counts = tunneling_circuit(
+        velocity=1.0,  # example velocity, for this test's purpose
+        api_key=args.api_key,
+        barrier_strength=1.0,
+        used_backend='aer_simulator',
+        shots=100
+    )
+    print(counts)
