@@ -2,17 +2,13 @@
 
 In this repository, we built a custom interface to communicate with IBM's opensource quantum computers. It allows to simulate a particle passing through a barrier, where the probability is calculated in a quantum computer, emmulating quantum tunneling effects. This program is activated by running `GUI.py`.
 
-<img src="./doc/GUI.png" width="800">
+<img src="./doc/GUI.png" width="750">
 
 The graphical user interface, as presented in the image above, has 4 inputs:
-
-    - Your IBM API key, which you need to go get in your IBM Qiskit account, if you still don't have one.
-
-    - A drop down menu with 2 backends to choose from (a simulator and a quantum computer).
-
-    - The barrier strength.
-
-    - The number of shots/particles to fire at the barrier.
+- Your IBM API key, which you need to go get in your IBM Qiskit account, if you still don't have one.
+- A drop down menu with 2 backends to choose from (a simulator and a quantum computer).
+- The barrier strength.
+- The number of shots/particles to fire at the barrier.
 
 We assume we have a laser shooting that amount of particles. Their velocity is a random value between 0 and 1 and the probability of passing the barrier (result |01>) or not (result |00>) is calculated in order to emmulate quantum tunneling, as soon as the user presses the button "Run Circuit". The button "Save Plot" can also be pressed in order to save the image as a .png file.
 
