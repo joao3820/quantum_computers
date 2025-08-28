@@ -14,6 +14,7 @@ def simulate(
 
     Args:
         circuit: A quantum circuit to be run.
+        api_key: User's API Key from their IBM account.
         used_backend: String with the backend to be used. If we want to run on a quantum computer, we just need
             to change this into the appropriate backend, and not a simulation one (default: 'aer_simulator').
         shots: Integer of the number of tests will be done.

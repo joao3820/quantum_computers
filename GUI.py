@@ -34,7 +34,7 @@ class MainWindow(QtWidgets.QMainWindow):
         barrier_strength = float(self.barrierStrength.value())
         shots = int(self.shots.value())
 
-        v = rd.random()
+        v = rd.random()  # get a random velocity for the particles
         counts = tunneling_circuit(
             velocity=v,
             api_key=api_key,

@@ -18,6 +18,7 @@ def tunneling_circuit(
     
     Args:
         velocity: Float of the particle's velocity, where velocity=1 is the maximum.
+        api_key: User's API Key from their IBM account.
         barrier_strength: Float representing barrier thickness/strength.
         used_backend: String with the backend to be used.
         shots: Number of shots for measurement statistics.
