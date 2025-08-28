@@ -4,7 +4,7 @@ from qiskit_ibm_runtime import QiskitRuntimeService
 
 def simulate(
         circuit,
-        api_key,
+        api_key: str,
         used_backend: str = 'aer_simulator',
         shots: int = 100,
     ) -> Dict[str, int]:
@@ -20,11 +20,12 @@ def simulate(
     Returns:
         counts: Dictionary with the number of measurements for each possible result.
     """
-    if api_key:
-        IBMQ.save_account(str(api_key))
-        provider = IBMQ.load_account()
-    else:
-        provider = QiskitRuntimeService()
+    QiskitRuntimeService.save_account(
+        channel='ibm_quantum',
+        token=api_key,  # API Key from a person's IBM account
+        overwrite=True
+    )
+    provider = QiskitRuntimeService()
 
     backend = provider.get_backend(used_backend)
     job = transpile(circuit.qc, backend)
